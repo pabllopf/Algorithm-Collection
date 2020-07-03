@@ -1,0 +1,33 @@
+# Project: Proyecto1
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = ../mn_lapack.o tnt_array_test.o $(RES)
+LINKOBJ  = ../mn_lapack.o tnt_array_test.o $(RES)
+LIBS =   
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = mn_tnt_array_test.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before mn_tnt_array_test.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "mn_tnt_array_test.exe" $(LIBS)
+
+../mn_lapack.o: ../mn_lapack.c
+	$(CPP) -c ../mn_lapack.c -o ../mn_lapack.o $(CXXFLAGS)
+
+tnt_array_test.o: tnt_array_test.c
+	$(CPP) -c tnt_array_test.c -o tnt_array_test.o $(CXXFLAGS)
