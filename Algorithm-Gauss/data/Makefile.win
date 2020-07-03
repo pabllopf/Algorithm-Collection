@@ -1,0 +1,33 @@
+# Project: an_practica_1
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe -D__DEBUG__
+CC   = gcc.exe -D__DEBUG__
+WINDRES = windres.exe
+RES  = 
+OBJ  = an_generacion_datos.o ../an_lapack.o $(RES)
+LINKOBJ  = an_generacion_datos.o ../an_lapack.o $(RES)
+LIBS =  -L"C:/Archivos de programa/OpenCV/lib" -L"C:/Archivos de programa/OpenCV/cv" -L"lib" -L"C:/Dev-Cpp/bin" -L"C:/Dev-Cpp/lib" -lhighgui -lcv -lcxcore -lcvaux -lcvcam  -g3 
+INCS =  -I"include" 
+CXXINCS =  -I"C:/Archivos de programa/OpenCV/otherlibs/highgui"  -I"C:/Archivos de programa/OpenCV/otherlibs/cvcam/include"  -I"C:/luis/ProyectoVicent/repositorio/trunk/source/INCLUDE"  -I".."  -I"../../.."  -I"lib/gcc/mingw32/3.4.2/include"  -I"include/c++/3.4.2/backward"  -I"include/c++/3.4.2/mingw32"  -I"include/c++/3.4.2"  -I"include"  -I"../../../INCLUDE"  -I"../INCLUDE"  -I"C:/Archivos de programa/OpenCV/cv/include"  -I"C:/Archivos de programa/OpenCV/cvaux/include"  -I"C:/Archivos de programa/OpenCV/cxcore/include"  -I"C:/Archivos de programa/OpenCV/otherlibs/highgui"  -I"C:/Archivos de programa/OpenCV/otherlibs/cvcam/include" 
+BIN  = an_generacion_datos.exe
+CXXFLAGS = $(CXXINCS)   -fexceptions -g3
+CFLAGS = $(INCS)   -fexceptions -g3
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before an_generacion_datos.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "an_generacion_datos.exe" $(LIBS)
+
+an_generacion_datos.o: an_generacion_datos.c
+	$(CPP) -c an_generacion_datos.c -o an_generacion_datos.o $(CXXFLAGS)
+
+../an_lapack.o: ../an_lapack.c
+	$(CPP) -c ../an_lapack.c -o ../an_lapack.o $(CXXFLAGS)
