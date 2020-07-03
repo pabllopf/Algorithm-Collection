@@ -1,2 +1,2 @@
 # Algorithm-Collection
-Collection of algorithms made in C ++.
+Collection of algorithms made in C++.
